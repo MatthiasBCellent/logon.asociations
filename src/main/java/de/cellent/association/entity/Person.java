@@ -31,13 +31,13 @@ public class Person implements Serializable {
 	private long id;
 
 	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//	@Fetch(FetchMode.SUBSELECT)
-//	private List<Address> addresses = new ArrayList<Address>();
+//	@Fetch(FetchMode.SUBSELECT) // the proprietary annotation
+//	private List<Address> addresses = new ArrayList<Address>(); // using List instead of Set
 	private Set<Address> addresses = new HashSet<Address>();
 
 	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//	@Fetch(FetchMode.SUBSELECT)
-//	private List<Job> jobs = new ArrayList<Job>();
+//	@Fetch(FetchMode.SUBSELECT)  // the proprietary annotation
+//	private List<Job> jobs = new ArrayList<Job>(); // using List instead of Set
 	private Set<Job> jobs = new HashSet<Job>();
 
 	public long getId() {
@@ -63,7 +63,4 @@ public class Person implements Serializable {
 	public void setJobs(Set<Job> jobs) {
 		this.jobs = jobs;
 	}
-
-	
-
 }
